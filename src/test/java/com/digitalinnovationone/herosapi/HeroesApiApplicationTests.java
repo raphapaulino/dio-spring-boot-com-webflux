@@ -47,11 +47,10 @@ class HeroesApiApplicationTests {
 
 	@Test
 	public void deleteHero() {
-		webTestClient.delete().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"), "1")
+		webTestClient.delete().uri(HEROES_ENDPOINT_LOCAL.concat("/{id}"), "2")
 			.accept(MediaType.APPLICATION_JSON)
 			.exchange()
-			.expectStatus().isNotFound()
-			.expectBody(Void.class);
+			.expectStatus().isNoContent();
 	}
 
 }
